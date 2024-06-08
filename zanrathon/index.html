@@ -1,0 +1,87 @@
+<style>
+/* Custom player style */
+#section3 midi-player {
+  display: block;
+  width: inherit;
+  margin: 4px;
+  margin-bottom: 0;
+}
+#section3 midi-player::part(control-panel) {
+  background: #6a329f;
+  border: 2px solid #000;
+  border-radius: 10px 10px 0 0;
+}
+#section3 midi-player::part(play-button) {
+  color: #353;
+  border: 2px solid currentColor;
+  background-color: #4d4;
+  border-radius: 20px;
+  transition: all 0.2s;
+  content: 'hello';
+}
+#section3 midi-player::part(play-button):hover {
+  color: #0a0;
+  background-color: #5f5;
+  border-radius: 10px;
+}
+#section3 midi-player::part(time) {
+  font-family: monospace;
+}
+
+/* Custom visualizer style */
+#section3 midi-visualizer .piano-roll-visualizer {
+  background: #ffd;
+  border: 2px solid black;
+  border-top: none;
+  border-radius: 0 0 20px 20px;
+  margin: 4px;
+  margin-top: 0;
+  overflow: auto;
+}
+#section3 midi-visualizer svg rect.note {
+  opacity: 0.6;
+  stroke-width: 2;
+}
+#section3 midi-visualizer svg rect.note[data-instrument="0"]{
+  fill: #47eabc;
+  stroke: #47c7ea;
+}
+#section3 midi-visualizer svg rect.note[data-instrument="2"]{
+  fill: #d2a93f;
+  stroke: #eabc47;
+}
+#section3 midi-visualizer svg rect.note[data-is-drum="true"]{
+  fill: #5b5b5b;
+  stroke: #bcbcbc;
+}
+#section3 midi-visualizer svg rect.note.active {
+  opacity: 0.9;
+  stroke: #000;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+  font-family: monospace;
+}
+</style>
+
+<style>
+body {
+background-color: #38383b;
+opacity: 0.8;
+background-image: linear-gradient(to right, #494eb1, #494eb1 5px, #38383b 5px, #38383b );
+background-size: 10px 100%;
+}
+</style>
+
+<h1><a target="_blank" href="https://funtasmo.github.io/boxable">Boxable</a></h1>
+<section id="section3">
+<midi-player
+  src="https://funtasmo.github.io/boxable/zanrathon/Zanrathon.mid"
+  sound-font visualizer="#section3 midi-visualizer">
+</midi-player>
+<midi-visualizer
+  src="https://funtasmo.github.io/boxable/zanrathon/Zanrathon.mid">
+</midi-visualizer>
+</section>
